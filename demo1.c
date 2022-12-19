@@ -18,7 +18,7 @@ int main(){
 		blink_led();
 	}
 }
-void clock_internal_enable()
+void clock_internal_enable() //
   {
 	*RCC_CR |= (1<<0);
 	*RCC_AHB1ENR |= (1<<6);
