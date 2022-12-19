@@ -26,7 +26,7 @@ void clock_internal_enable()
 
 	void gpio_init()
 	{
-		*GPIOG_MODER |= (1<<30);
+		*GPIOG_MODER |= (1<<30); //
 		*GPIOG_MODER &= ~(1<<31);
 		*GPIOG_OTYPER &= ~(1<<14);
 		*GPIOG_OSPEEDR &= ~(1<<29);
