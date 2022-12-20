@@ -18,22 +18,21 @@ int main(){
 		blink_led();
 	}
 }
-void clock_internal_enable() //
+void clock_internal_enable()
   {
 	*RCC_CR |= (1<<0);
 	*RCC_AHB1ENR |= (1<<6);
   }
-
+	
 	void gpio_init()
 	{
-		*GPIOG_MODER |= (1<<30); //
-		*GPIOG_MODER &= ~(1<<31);
+		*GPIOG_MODER |= (1<<28);
+		*GPIOG_MODER &= ~(1<<29);
 		*GPIOG_OTYPER &= ~(1<<14);
 		*GPIOG_OSPEEDR &= ~(1<<29);
-		*GPIOG_OSPEEDR |= ~(1<<28);
-		*GPIOG_PUPDR &= (1<<29);
-		*GPIOG_PUPDR &= (1<<28);
-		
+		*GPIOG_OSPEEDR |= (1<<28);
+		*GPIOG_PUPDR &= ~(1<<29);
+		*GPIOG_PUPDR &= ~(1<<28);
 	}
 	void blink_led(){
 		for(uint32 i=0; i<900000; i++)
@@ -45,3 +44,4 @@ void clock_internal_enable() //
 			*GPIOG_ODR &= ~(1<<14);
 		}
 	}
+	
